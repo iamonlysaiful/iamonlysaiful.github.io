@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 @import url("fontawesome-all.min.css");
 
 /*
@@ -18,6 +18,7 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
+	
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -1306,10 +1307,10 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/bg.jpg");
+		/* background-image: url("images/overlay.png"), url("images/bg.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
-		background-attachment: fixed;
+		background-attachment: fixed; */
 		overflow-y: scroll;
 	}
 
@@ -1325,9 +1326,9 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
-		color: #777777;
+		color: #575757;
 		font-size: 20pt;
 		line-height: 1.75em;
 	}
@@ -1369,7 +1370,7 @@ input, select, textarea {
 		color: #363636;
 	}
 
-	h1 {
+	/* h1 {
 		font-size: 2.4em;
 		letter-spacing: -0.015em;
 	}
@@ -1382,9 +1383,9 @@ input, select, textarea {
 	h3, h4, h5, h6 {
 		font-size: 1.25em;
 		letter-spacing: -0.015em;
-	}
+	} */
 
-	@media screen and (max-width: 736px) {
+	/* @media screen and (max-width: 736px) {
 
 		h1 {
 			font-size: 1.75em;
@@ -1398,7 +1399,7 @@ input, select, textarea {
 			font-size: 1em;
 		}
 
-	}
+	} */
 
 	blockquote {
 		border-left: solid 0.5em #ddd;
@@ -1434,7 +1435,7 @@ input, select, textarea {
 	}
 
 	p, ul, ol, dl, table, blockquote, form {
-		margin-bottom: 2em;
+		/* margin-bottom: 2em; */
 	}
 
 /* Table */
@@ -1533,7 +1534,7 @@ input, select, textarea {
 
 		header > p {
 			margin: 0.5em 0 0 0;
-			color: #aaa;
+			color: rgb(77, 77, 77);
 		}
 
 		@media screen and (max-width: 736px) {
@@ -1778,7 +1779,7 @@ input, select, textarea {
 		#nav a {
 			position: relative;
 			display: inline-block;
-			color: #ffffff;
+			color: #7d54c8;
 			width: 1em;
 			height: 1em;
 			line-height: 0.9em;
@@ -1819,8 +1820,8 @@ input, select, textarea {
 			#nav a span {
 				display: block;
 				position: absolute;
-				background: #222222;
-				color: #ffffff;
+				background: #7d54c8;
+				color: #fff;
 				top: -2.75em;
 				font-size: 0.3em;
 				height: 2.25em;
@@ -1831,7 +1832,7 @@ input, select, textarea {
 				-webkit-transition: opacity .25s ease-in-out;
 				-ms-transition: opacity .25s ease-in-out;
 				transition: opacity .25s ease-in-out;
-				width: 5.5em;
+				width: 7.5em;
 				margin-left: -2.75em;
 			}
 
@@ -1842,7 +1843,7 @@ input, select, textarea {
 					bottom: -0.4em;
 					left: 50%;
 					margin-left: -0.6em;
-					border-top: solid 0.6em #222222;
+					border-top: solid 0.6em #7d54c8;
 					border-left: solid 0.6em transparent;
 					border-right: solid 0.6em transparent;
 				}
@@ -1948,7 +1949,8 @@ input, select, textarea {
 		overflow: hidden;
 		width: 100%;
 		background: #ffffff;
-		box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
+		/* box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.25); */
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 		-moz-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
 		-webkit-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
 		-ms-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
@@ -2047,9 +2049,9 @@ input, select, textarea {
 						margin-top: -1.375em;
 						width: 2.75em;
 						height: 2.75em;
-						background: #000;
-						background: rgba(0, 0, 0, 0.75);
-						color: #ffffff;
+						/* background: #000; */
+						background: rgba(255, 255, 255, 0.75);
+						color: #303030;
 						text-align: center;
 						line-height: 2.75em;
 						font-size: 1.5em;
@@ -2189,3 +2191,53 @@ input, select, textarea {
 			}
 
 		}
+
+
+		.poppins{
+			font-family: 'Poppins', sans-serif;
+		}
+		.roboto{
+			font-family: 'Roboto', sans-serif;
+		}
+
+.ft-20{
+	font-size: 20px !important;
+	
+}
+.ft-18{
+	font-size: 18px !important;
+	
+}
+
+.line-height-normal{
+	line-height: normal;
+}
+
+.ft-35{
+	font-size: 35px !important;
+}
+.fw-600{
+	font-weight: 600;
+}
+
+figcaption {
+	background-color: #fff;
+	border: 1px solid #7d54c8;
+    color: #7d54c8;
+    padding: 12px;
+    font-size: small;
+    line-height: 1;
+	text-align: center;
+	}
+	canvas {
+		display: block;
+		vertical-align: bottom;
+	  }
+	  
+	  #particles-js {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background:  #f5f5f5;
+	  }
+	  

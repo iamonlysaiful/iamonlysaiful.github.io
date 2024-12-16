@@ -1,0 +1,51 @@
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $posts := .Site.Params.home.posts -}}
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+
+    <div class="page home"{{ if ne $posts.enable false }} posts{{ end }}>
+
+        <!-- Home profile -->
+        {{- /* Profile */ -}}
+        {{- if ne $profile.enable false -}}
+            {{- partial "home/profile.html" . -}}
+        {{- end -}}
+
+        <!-- Content cards -->
+        <div class="home-row">
+
+            <!-- Left column of cards -->
+            <div class="left-column">
+                <!-- Recent 5 publications -->
+                <!-- <h2 class="home-section-title"><a href="publications">Recent publications</a></h2>
+                {{- range ( where .Site.RegularPages "Type" "publications" | first 5 ) -}}
+                    {{- .Render "summary" -}}
+                {{- end -}} -->
+
+                <!-- Recent blog posts (first 3) -->
+                <!-- <h2 class="home-section-title"><a href="posts/">Recent posts</a></h2>
+                {{- range ( where .Site.RegularPages "Type" "posts" | first 3 ) -}}
+                    {{- .Render "summary" -}}
+                {{- end -}} -->
+
+                <!-- Recent blog posts (first 2 after 5) -->
+                <!-- <h2 class="home-section-title"><a href="posts/">Recent posts</a></h2>
+                {{- range ( where .Site.RegularPages "Type" "posts" | after 5 | first 2 ) -}}
+                    {{- .Render "summary" -}}
+                {{- end -}} -->
+            </div>
+
+            <!-- Right column of cards -->
+            <div class="right-column">
+                <!-- Recent 7 news -->
+                <!-- <h2 class="home-section-title"><a href="news/">Recent news</a></h2>
+                {{- range ( where .Site.RegularPages "Type" "news" | first 7 ) -}}
+                    {{- .Render "summary" -}}
+                {{- end -}}
+            </div> -->
+        </div>
+    </div>
+{{- end -}}

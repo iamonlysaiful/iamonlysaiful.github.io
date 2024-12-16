@@ -1,0 +1,44 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title animated pulse faster">
+            Research
+        </h2>
+
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupBy "Section" -}}
+            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+
+            {{- range $pages.PageGroups -}} <!-- group paper by weight -->
+                {{- range .Pages -}} <!-- for research in order of ascending weight -->
+
+                <article class="article-card">
+                    <!-- Research feature image -->
+                    {{- if .Params.show_image -}}
+                        <div class="featured-image-preview">
+                            <img src="/research-images/{{ .Params.show_image }}" class="publication-images">
+                        </div>
+                    {{- end -}}
+
+                    <!-- Research content -->
+                    <div class="article-info">
+                        <h2 class="article-title">{{- .Title -}}</h2>
+                        <div>{{- .Content -}}</div>
+                    </div>
+                </article>
+
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}

@@ -1,0 +1,88 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/members.css">
+
+    <div class="page archive">
+        <!-- Title -->
+        <h2 class="single-title animated pulse faster">
+            Meet the team
+        </h2>
+
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupBy "Section" -}}
+            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+
+             {{- range $pages.PageGroups -}} <!-- group people -->
+                {{- range (.Pages).Reverse -}} <!-- for people in descending (reversed) weight -->
+                    <article class="article-card">
+                        <!-- Member picture -->
+                        <img class="profile-image" src="{{- .Params.image -}}">
+
+                        <div class="article-info">
+                            <!-- Member name -->
+                            <h3 class="article-title">{{- .Params.name -}}</h3>
+                            <div>
+                                <p class="person-title">
+                                    <!-- Member title (PhD, MS, etc) -->
+                                    {{- .Params.title -}}
+
+                                    <!-- Optional social media and contact -->
+                                    {{- if .Params.github -}}
+                                        &nbsp;<a href="https://github.com/{{- .Params.github -}}" target="_blank"><i class="fab fa-github"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.linkedin -}}
+                                        &nbsp;<a href="https://linkedin.com/in/{{- .Params.linkedin -}}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.twitter -}}
+                                        &nbsp;<a href="https://twitter.com/{{- .Params.twitter -}}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.instagram -}}
+                                        &nbsp;<a href="https://www.instagram.com/{{- .Params.instagram -}}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.facebook -}}
+                                        &nbsp;<a href="https://facebook.com/{{- .Params.facebook -}}" target="_blank"><i class="fab fa-facebook"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.email -}}
+                                        &nbsp;<a href="mailto:{{- .Params.email -}}"><i class="far fa-envelope"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.website -}}
+                                        &nbsp;<a href="{{- .Params.website -}}" target="_blank"><i class="fas fa-link"></i></a>
+                                    {{- end -}}
+                                    {{- if .Params.cv_link -}}
+                                        &nbsp;| <a href="{{- .Params.cv_link -}}">CV</a>
+                                    {{- end -}}
+                                </p>
+                                <ul>
+                                    <!-- Member major -->
+                                    {{- if .Params.major -}}
+                                        <li>{{- .Params.major -}}</li>
+                                    {{- end -}}
+
+                                    <!-- Member education -->
+                                    {{- if .Params.education -}}
+                                        <li>{{- .Params.education -}}</li>
+                                    {{- end -}}
+                                </ul>
+
+                                <!-- Member recognition -->
+                                {{- if .Params.recognition -}}
+                                    <p><strong>{{- .Params.recognition -}}</strong></p>
+                                {{- end -}}
+                            </div>
+                        </div>
+                    </article>
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}
